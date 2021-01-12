@@ -1,0 +1,575 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="MFG_DigitalApp.MasterPage" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>MFG Digital App</title>
+    <%--  @*<link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />*@--%>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.6 -->
+    <link href="~/Content/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link href="~/Content/blue.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/plugins/select2.css" rel="stylesheet" />
+    <link href="~/Content/AdminLTE.min.css" rel="stylesheet" />
+    <link href="~/Content/plugins/_all-skins.min.css" rel="stylesheet" />
+    <link href="~/Content/plugins/morris.css" rel="stylesheet" />
+    <link href="~/Content/plugins/jquery-jvectormap-1.2.2.css" rel="stylesheet" />
+    <link href="~/Content/plugins/bootstrap3-wysihtml5.min.css" rel="stylesheet" />
+    <link href="~/Content/grid/grid.css" rel="stylesheet" />
+    <link href="~/Content/plugins/jquery.inputpicker.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/Menu.css" rel="stylesheet" />
+    <link href="~/Content/icons/icomoon/styles.css?v=@version" rel="stylesheet" type="text/css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <%--    @Scripts.Render("~/bundles/jquery")--%>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <%--<script>
+        $.widget.bridge('uibutton', $.ui.button);
+    </script>--%>
+    <script src="Scripts/bootstrap/bootstrap.min.js"></script>
+    <script src="Scripts/plugins/icheck.js"></script>
+
+    <script src="Scripts/plugins/morris.min.js"></script>
+    <script src="Scripts/plugins/jquery.sparkline.min.js"></script>
+    <script src="Scripts/plugins/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="Scripts/plugins/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="Scripts/plugins/jquery.knob.js"></script>
+    <script src="Scripts/plugins/bootstrap3-wysihtml5.all.min.js"></script>
+    <script src="Scripts/plugins/jquery.slimscroll.min.js"></script>
+    <script src="Scripts/plugins/app.min.js"></script>
+    <script src="Scripts/plugins/select2.js"></script>
+    <script src="Scripts/plugins/bootstrap-datepicker.js"></script>
+    <script src="Scripts/plugins/jquery.inputpicker.js"></script>
+    <script src="Scripts/plugins/demo.js"></script>
+    <script src="Scripts/moduleCommon.js"></script>
+
+
+    <style>
+        hr.botm-line {
+            height: 3px;
+            width: 60px;
+            background: #87C33E;
+            position: relative;
+            border: 0;
+            margin: 20px 0 20px 0;
+            text-align: left;
+        }
+
+        hr.bot-line {
+            height: 3px;
+            width: 60px;
+            background: #87C33E;
+            border: 0;
+            text-align: center;
+        }
+
+        .ser-title {
+            line-height: 0px;
+            font-size: 28px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .disabled {
+            background-color: azure;
+        }
+
+        .day.active {
+            background-color: #36AACC !important;
+        }
+
+        .day.today {
+            background-color: #FFDB99 !important;
+        }
+
+        .navbar-nav > .user-menu > .dropdown-menu > li.user-header {
+            height: 100% !important;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .Top-Panel {
+            display: block;
+        }
+
+        .Mobile-Panel {
+            display: none;
+        }
+
+        .content-header {
+            display: none;
+        }
+
+        .logo-position {
+            margin-right: 0px;
+        }
+
+        .mobile-hide {
+            display: block;
+        }
+
+        .content {
+            min-height: 250px;
+            padding: 15px;
+            margin-right: auto;
+            margin-left: auto;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        .DailyActivity {
+            padding-left: 0px !important;
+            padding-right: 0px !important;
+        }
+
+        .form-control {
+            padding: 6px 5px !important;
+        }
+
+        @media only screen and (max-width: 740px) {
+            .Top-Panel {
+                display: none;
+            }
+
+            .content {
+                min-height: 250px;
+                padding: 0px;
+                margin-right: auto;
+                margin-left: auto;
+                padding-left: 0px;
+                padding-right: 0px;
+            }
+
+            .mobile-hide {
+                display: none;
+            }
+
+            .Mobile-Panel {
+                display: block;
+            }
+
+            .content-header {
+                display: none;
+            }
+
+            .logo-position {
+                margin-right: 8%;
+            }
+
+            .ser-title {
+                line-height: 0px;
+                font-size: 20px;
+                font-weight: 700;
+                text-transform: uppercase;
+            }
+
+            .DailyActivity {
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+            }
+        }
+
+        @media (min-width:501px) and (max-width: 740px) {
+            .logo-position {
+                margin-right: 35%;
+            }
+        }
+
+        body {
+            font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif !important;
+        }
+
+        .gj-grid-table thead {
+            background: #00B0F0;
+            color: #FFFFFF;
+        }
+
+            .gj-grid-table thead th {
+                border-color: #00B0F0 !important;
+            }
+
+        .navbar .nav > li > a {
+            font-size: 12px !important;
+        }
+
+        .navbar .nav > .active > a {
+            background: #BA075F !important;
+            color: #FFFFFF !important;
+        }
+
+        .gj-grid-table > thead > tr > th {
+            vertical-align: top;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .content-wrapper > .container {
+            /*background-color:#ECF0F5;*/
+            /*min-height:600px;*/
+        }
+
+        .navbar-static-top > .container {
+            /*background-color:#ECF0F5;*/
+        }
+
+        .btn-mobile-width {
+            width: 100%;
+        }
+
+        h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+            font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif !important;
+        }
+
+        .navbar-nav > .user-menu .user-image {
+            margin-top: 10px !important;
+        }
+
+        #NavigationMenu a.static.selected {
+            background: #BA075F !important;
+            color: #FFFFFF !important;
+        }
+
+        .item {
+            background-color: #00a65a !important;
+        }
+
+        .floatright {
+            float: right;
+        }
+
+        .lbl {
+            font-size: 16px;
+        }
+
+
+        /*grid view page style*/
+        .GridPager a,
+        .GridPager span {
+            display: inline-block;
+            padding: 0px 9px;
+            margin-right: 4px;
+            border-radius: 3px;
+            border: solid 1px #c0c0c0;
+            background: #e9e9e9;
+            box-shadow: inset 0px 1px 0px rgba(255,255,255, .8), 0px 1px 3px rgba(0,0,0, .1);
+            font-size: .875em;
+            font-weight: bold;
+            text-decoration: none;
+            color: #717171;
+            text-shadow: 0px 1px 0px rgba(255,255,255, 1);
+        }
+
+        .GridPager a {
+            background-color: #f5f5f5;
+            color: #969696;
+            border: 1px solid #969696;
+        }
+
+        .GridPager span {
+            background: #000;
+            box-shadow: inset 0px 0px 8px rgba(0,0,0, .5), 0px 1px 0px rgba(255,255,255, .8);
+            color: #fff;
+            text-shadow: 0px 0px 3px rgba(0,0,0, .5);
+            border: 1px solid #3AC0F2;
+        }
+
+        .GridPager table {
+            width: auto !important;
+        }
+
+            .GridPager table td {
+                border: none !important;
+                padding: 5px 0px 5px 10px !important;
+            }
+
+        /*grid view page style*/
+
+        .button {
+            width: 130px;
+            font-family: 'open_sansextrabold';
+            font-size: 14px;
+            font-weight: bold;
+            border: none;
+            background: #231f20;
+            margin: 0;
+            color: #fff;
+            padding: 6px 0px 6px 0px;
+            -webkit-appearance: none !important;
+            -moz-appearance: none !important;
+            appearance: none !important;
+            -webkit-border-radius: 0px !important;
+        }
+
+        .height {
+            height: 30px !important;
+        }
+
+        .heightwithpadding, heightwithpadding:hover {
+            height: 30px !important;
+            padding-top: 5px !important;
+            background-color: #3c8dbc !important;
+            color: #ffffff !important;
+            font-weight: bold !important;
+        }
+
+        .navbar {
+            min-height: 30px !important;
+        }
+
+        .divdatetime {
+            margin-top: 5px;
+            margin-right: 10px;
+        }
+
+        .logout {
+            padding: 0px !important;
+            text-decoration: underline;
+            margin-top: 5px;
+            margin-left: 10px;
+        }
+
+        .content-header > .breadcrumb {
+            text-align: center;
+            background: transparent;
+            margin-top: 0;
+            margin-bottom: 0;
+            font-size: 14px;
+            padding: 7px 5px;
+            position: absolute;
+            top: 15px;
+            right: 10px;
+            border-radius: 2px;
+        }
+
+        .breadcrumb {
+            padding: 0px 0px !important;
+            margin-bottom: 0px !important;
+            list-style: none;
+            background-color: transparent !important;
+            border-radius: 4px;
+            font-size: 19px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+            .breadcrumb li {
+                color: #01447e;
+            }
+
+        .content {
+            padding: 0px;
+        }
+
+        .container {
+            padding: 0px !important;
+            width: 98% !important;
+        }
+
+        .numberalign {
+            text-align: right !important;
+        }
+
+        body {
+            font-family: "Lato", sans-serif;
+        }
+    </style>
+
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="layout-top-nav skin-black-light" style="background-color: #ECF0F5">
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-169911530-4"></script>
+<script>
+var usermail = '<%= Session["FullName"] %>';
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-169911530-4');
+gtag('set', {'user_id': usermail});
+
+gtag('config', 'UA-169911530-4', {
+  'custom_map': {'dimension1': 'CUseremail'}
+});
+// Sends an event that passes 'age' as a parameter.
+gtag('event', 'dimension1', {'CUseremail': usermail}); 
+// Set the user ID using signed-in user_id.
+</script>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <div class="wrapper" style="height: auto; min-height: 100%;">
+            <header class="main-header">
+                <nav class="navbar navbar-static-top height">
+                    <div class="container DailyActivity">
+                        <div class="navbar-header" style="margin-top: -1%">
+                            <a href="#" class="mobile-hide">
+                                <h2 class="text-center" style="margin-top: 4px; margin-right: 7px; height: 23px;">
+                                    <img src="Content/Images/logo.png" style="width: 60px; padding-top: 5px;" /></h2>
+
+                            </a>
+
+                        </div>
+                        <div id="mySidenav" runat="server" class="sidenav">
+                            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+                            <a href="QI_Parameters.aspx"><i class="icon-database-add"></i>Parameter Master</a>
+                            <a href="QI_Schedules.aspx"><i class="icon-calendar"></i>Schedule Master</a>
+                            <a href="ProductionGraceLimitMaster.aspx"><i class="icon-calendar"></i>Production Grace Limit Master</a>
+                            <a href="AddOperator.aspx"><i class="icon-calendar"></i>Operator Master</a>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+
+
+                            <ul class="nav navbar-nav height">
+
+                                <li>
+                                    <div id="mySideNavIcon" runat="server">
+                                        <span style="font-size: 25px; cursor: pointer; height: 16px; width: 16px; padding-right: 15px; padding-left: 15px;" onclick="openNav()">&#9776;</span>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <asp:Menu ID="NavigationMenu" runat="server" Orientation="Horizontal" RenderingMode="List"
+                                        IncludeStyleBlock="false" StaticMenuStyle-CssClass="nav navbar-nav height" DynamicMenuStyle-CssClass="dropdown-menu height"
+                                        Font-Size="12px" Height="30px" DynamicMenuItemStyle-CssClass="height" StaticMenuItemStyle-CssClass="heightwithpadding">
+                                        <Items>
+
+                                            <asp:MenuItem Text="Home" NavigateUrl="~/ShiftDetails.aspx"></asp:MenuItem>
+                                            <asp:MenuItem Text="Upload Operator" NavigateUrl="~/UploadOperator.aspx"></asp:MenuItem>
+
+                                        </Items>
+
+                                    </asp:Menu>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                        <!-- Navbar Right Menu -->
+                        <div class="navbar-custom-menu">
+                            <ul class="nav navbar-nav height">
+                                <!-- User Account Menu -->
+                                <li class="divdatetime"><span id="lbldatetime"></span></li>
+
+                                <li class="dropdown user user-menu" style="margin-top: 5px;">
+                                    <!-- Menu Toggle Button -->
+                                    <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                                    <asp:Label ID="Label2" runat="server" Font-Names="Calibri" Font-Size="12px" ForeColor="Black"
+                                        Font-Bold="True">Logged in : </asp:Label>
+                                    <asp:Label ID="Label1" runat="server" Font-Names="Calibri" Font-Size="12px" ForeColor="#3366FF"
+                                        Font-Bold="True"></asp:Label>
+                                    </li>
+                                    <li class="dropdown user user-menu" style="margin-top: 5px;">
+                                    <asp:Label ID="Label3" runat="server" Font-Names="Calibri" Font-Size="12px" ForeColor="Black"
+                                        Font-Bold="True">Country : </asp:Label>
+                                    <asp:Label ID="Label4" runat="server" Font-Names="Calibri" Font-Size="12px" ForeColor="#3366FF"
+                                        Font-Bold="True"></asp:Label>
+                                </li>
+                                <li class="dropdown user user-menu">
+                                    <asp:LinkButton ID="lnkLogout" runat="server" Text="Log out" CssClass="logout" ForeColor="#4B6C9E"
+                                        OnClick="lnkLogout_Click"></asp:LinkButton>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /.navbar-custom-menu -->
+
+                    <!-- /.container-fluid -->
+                </nav>
+            </header>
+            <!-- Full Width Column -->
+
+            <div id="wait" style="display: none;" class="divAnimation">
+                <img src='~/Content/Images/ajax_wait.gif' width="64" height="64" /><br>
+                Loading..
+            </div>
+            <div id="main">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+        <script>
+            $(function () {
+                getCurrentDate();
+                //Initialize Select2 Elements
+                if ($(".select2").length > 0)
+                    $('.select2').select2();
+                //Date picker
+                $('.datepicker').datepicker({
+                    //startDate: '+0d',
+                    autoclose: true,
+                    todayHighlight: true,
+                    //startDate:new Date()
+                });
+
+                var height = $(window).height() - 115;
+                $('.content-wrapper > .container').css("min-height", "".concat(height.toString(), "px"));
+            });
+
+            function getCurrentDate() {
+                
+                //var curDate = new Date();
+              
+                now = new Date();
+                //UTCTime = now.toUTCString();
+                var timezone = now.getTimezoneOffset() * 60000;
+                var utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+                indotime = new Date(utc + (3600000 * 7));
+                var CountryId = '<%= Session["CountryId"] %>';
+                                 //alert(CountryId );
+                                 if (CountryId == 1) {
+                                     now = new Date();
+                                     year = "" + now.getFullYear();
+                                     month = "" + (now.getMonth() + 1); if (month.length == 1) { month = "0" + month; }
+                                     day = "" + now.getDate(); if (day.length == 1) { day = "0" + day; }
+                                     hour = "" + now.getHours(); if (hour.length == 1) { hour = "0" + hour; }
+                                     minute = "" + now.getMinutes(); if (minute.length == 1) { minute = "0" + minute; }
+                                     second = "" + now.getSeconds(); if (second.length == 1) { second = "0" + second; }
+                                     var curDate = day + "-" + month + "-" + year + "  " + hour + ":" + minute + ":" + second;
+                                     document.getElementById("lbldatetime").innerHTML = "<b>Date :</b> " + curDate;
+                                 }
+                                 else if (CountryId==2)
+                                 {  
+                                     var now = new Date();
+                                     var CurrentTime = new Date(indotime);
+                                     //CurrentTime.setHours(CurrentTime.getHours());
+                                     //CurrentTime.setMinutes(CurrentTime.getMinutes());
+
+                                     var date = "" + CurrentTime.getDate(); if (date.length == 1) { date = "0" + date; }
+                                     var hours = "" + CurrentTime.getHours(); if (hours.length == 1) { hours = "0" + hours; }
+                                     var Minutes = "" + CurrentTime.getMinutes(); if (Minutes.length == 1) { Minutes = "0" + Minutes; }
+                                     var second = "" + CurrentTime.getSeconds(); if (second.length == 1) { second = "0" + second; }
+                                     var Month = "" + (CurrentTime.getMonth() + 1); if (Month.length == 1) { Month = "0" + Month; }
+                                     var Year = "" + CurrentTime.getFullYear();
+                                     var curDate = date + "-" + Month + "-" + Year + "  " + hours + ":" + Minutes + ":" + second;
+                                     document.getElementById("lbldatetime").innerHTML = "<b>Date :</b> " + curDate;
+
+                                     setTimeout(getCurrentDate, 1000);
+                               }
+                             }
+
+                             /* Set the width of the side navigation to 250px */
+                             function openNav() {
+                                 document.getElementById("mySidenav").style.width = "250px";
+                                 document.getElementById("main").style.marginLeft = "250px";
+                             }
+
+                             /* Set the width of the side navigation to 0 */
+                             function closeNav() {
+                                 document.getElementById("mySidenav").style.width = "0";
+                                 document.getElementById("main").style.marginLeft = "0";
+                             }
+        </script>
+    </form>
+</body>
+</html>

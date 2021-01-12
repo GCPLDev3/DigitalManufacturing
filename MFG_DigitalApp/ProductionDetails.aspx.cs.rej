@@ -1,0 +1,15 @@
+diff a/MFG_DigitalApp/ProductionDetails.aspx.cs b/MFG_DigitalApp/ProductionDetails.aspx.cs	(rejected hunks)
+@@ -612,8 +612,11 @@
+             DataTable NewDataTable = new DataTable();
+             objclsSensorQty.AddColumnsAndPullData(MainDataTable, NewDataTable, items);
+ 
+-            ShiftFrom = Convert.ToDateTime(objclsSensorQty.ShiftStartTime.ToString());
+-            ShiftTo = Convert.ToDateTime(objclsSensorQty.ShiftEndTime.ToString());
++
++
++
++            ShiftFrom = DBClass.ConvertTime(objclsSensorQty.ShiftStartTime.ToString());
++            ShiftTo = DBClass.ConvertTime(objclsSensorQty.ShiftEndTime.ToString());
+ 
+             objclsSensorQty.getHoursData(MainDataTable, NewDataTable, ShiftFrom, ShiftTo);
+ 

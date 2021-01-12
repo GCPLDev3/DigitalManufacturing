@@ -1,0 +1,93 @@
+﻿
+.highlight{
+    border-color: #dd4b39 !important;
+    box-shadow: none;
+}
+.btn-width {
+    width: 160px;
+}
+.btn-space{
+   margin-right:5px;
+}
+.search-top{
+    margin-top:5px;
+}
+.apply-new-color{
+   background-color: #ECF0F5 !important;
+}
+
+.custom-center-block {
+    display: block;
+    margin-right: auto !important;
+    margin-left: auto !important;
+}
+.imageResponse{
+    width:100% ;
+    height:200px;
+}
+.callout2 {
+    /* border-radius: 3px; */
+    /* margin: 0px 0 20px 0; */
+    padding: 7px 15px 1px 42px;
+    /* border-left: 5px solid #eee; */
+    border-color: #222 !important;
+    background-color:#222 !important;
+    color: #fff !important;
+    text-align:center;
+}
+
+.divAnimation{
+    width:69px;
+    height:89px;
+    border:none;
+    position:absolute;
+    top:50%;left:50%;
+    padding:2px;
+    z-index:1000
+}
+.text-highlight{
+    border-color:orangered;
+}
+.circle-icon{
+    margin-left:5px !important;
+}
+.gj-cursor-pointer{
+    cursor:pointer;
+}
+.display-style{
+    display:block !important;
+}
+.display-style-remove{
+    display:none !important;
+}
+
+ .calender-adon {
+        display: table-cell;
+    }
+.mobile-top {
+    margin-top: 0px;
+}
+.chart-size {
+    width: 100%;
+    height: 100%;
+}
+
+@media only screen and (max-width: 500px) {
+    .calender-adon {
+        display: none;
+    }
+
+    .mobile-top {
+        margin-top: -16px;
+    }
+
+    .chart-size {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.bg-excel{
+    background-color:#207245 !important;
+    color: #ffffff;
+}
