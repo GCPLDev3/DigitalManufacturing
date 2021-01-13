@@ -955,51 +955,54 @@ namespace MFG_DigitalApp
 
         public void GetSensorQty()
         {
-            string QueryString = "";
-            string Plant = "", LineNo = "", Shift = "", StrDate = "";
-            Plant = lblplantcode.Text;
-            LineNo = lblline.Text;
-            Shift = lblshift.Text;
-            StrDate = lbldate.Text.ToString().Trim();
-            if (StrDate != null && StrDate != "")
+            try
             {
-                _logger.Error(StrDate);
-                StrDate = Convert.ToDateTime(StrDate).ToString("yyyy-MM-dd");
-            }
+                string QueryString = "";
+                string Plant = "", LineNo = "", Shift = "", StrDate = "";
+                Plant = lblplantcode.Text;
+                LineNo = lblline.Text;
+                Shift = lblshift.Text;
+                StrDate = lbldate.Text.ToString().Trim();
+                if (StrDate != null && StrDate != "")
+                {
+                    _logger.Error(StrDate);
+                    StrDate = Convert.ToDateTime(StrDate).ToString("yyyy-MM-dd");
+                }
 
-            DateTime ShiftFrom = new DateTime();
-            DateTime ShiftTo = new DateTime();
-            string PC_Column_01 = "", PC_Column_02 = "", PC_Column_03 = "";
+                DateTime ShiftFrom = new DateTime();
+                DateTime ShiftTo = new DateTime();
+                string PC_Column_01 = "", PC_Column_02 = "", PC_Column_03 = "";
 
-            QueryString = objclsSensorQty.GetShiftTableDataBy(Plant, LineNo, Shift, StrDate);
+                QueryString = objclsSensorQty.GetShiftTableDataBy(Plant, LineNo, Shift, StrDate);
 
-            List<Dictionary<String, String>> items = new List<Dictionary<String, String>>();
-            items = clsAthenaCode.runQuery(QueryString);
+                List<Dictionary<String, String>> items = new List<Dictionary<String, String>>();
+                items = clsAthenaCode.runQuery(QueryString);
 
-            DataTable MainDataTable = new DataTable();
-            DataTable NewDataTable = new DataTable();
-            objclsSensorQty.AddColumnsAndPullData(MainDataTable, NewDataTable, items);
+                DataTable MainDataTable = new DataTable();
+                DataTable NewDataTable = new DataTable();
+                objclsSensorQty.AddColumnsAndPullData(MainDataTable, NewDataTable, items);
 
-            ShiftFrom = Convert.ToDateTime(objclsSensorQty.ShiftStartTime.ToString());
-            ShiftTo = Convert.ToDateTime(objclsSensorQty.ShiftEndTime.ToString());
+                ShiftFrom = Convert.ToDateTime(objclsSensorQty.ShiftStartTime.ToString());
+                ShiftTo = Convert.ToDateTime(objclsSensorQty.ShiftEndTime.ToString());
 
-            objclsSensorQty.getHoursData(MainDataTable, NewDataTable, ShiftFrom, ShiftTo);
+                objclsSensorQty.getHoursData(MainDataTable, NewDataTable, ShiftFrom, ShiftTo);
 
-            PC_Column_01 = objclsSensorQty.PC_Column_01.ToString();
-            if (PC_Column_01 != "")
-            {
-                objclsSensorQty.GetCartonPackingShiftDataWithHoursBy("CartonPacking01", NewDataTable, ds_CartonPacking, PC_Column_01);
-            }
-            PC_Column_02 = objclsSensorQty.PC_Column_02.ToString();
-            if (PC_Column_02 != "")
-            {
-                objclsSensorQty.GetCartonPackingShiftDataWithHoursBy("CartonPacking02", NewDataTable, ds_CartonPacking, PC_Column_02);
-            }
-            PC_Column_03 = objclsSensorQty.PC_Column_03.ToString();
-            if (PC_Column_03 != "")
-            {
-                objclsSensorQty.GetCartonPackingShiftDataWithHoursBy("CartonPacking03", NewDataTable, ds_CartonPacking, PC_Column_03);
-            }
+                PC_Column_01 = objclsSensorQty.PC_Column_01.ToString();
+                if (PC_Column_01 != "")
+                {
+                    objclsSensorQty.GetCartonPackingShiftDataWithHoursBy("CartonPacking01", NewDataTable, ds_CartonPacking, PC_Column_01);
+                }
+                PC_Column_02 = objclsSensorQty.PC_Column_02.ToString();
+                if (PC_Column_02 != "")
+                {
+                    objclsSensorQty.GetCartonPackingShiftDataWithHoursBy("CartonPacking02", NewDataTable, ds_CartonPacking, PC_Column_02);
+                }
+                PC_Column_03 = objclsSensorQty.PC_Column_03.ToString();
+                if (PC_Column_03 != "")
+                {
+                    objclsSensorQty.GetCartonPackingShiftDataWithHoursBy("CartonPacking03", NewDataTable, ds_CartonPacking, PC_Column_03);
+                }
+            }catch(Exception ex) { }
         }
     }
 }

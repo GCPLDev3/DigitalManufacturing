@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Text;
 
 namespace MFG_DigitalApp
 {
@@ -20,6 +21,22 @@ namespace MFG_DigitalApp
             {
                 GetData();
                 GetParameterTypes();
+            }
+        }
+        protected void chckchanged(object sender, EventArgs e)
+        {
+            CheckBox chckheader = (CheckBox)GrdParameterList.HeaderRow.FindControl("CheckAll");
+            foreach (GridViewRow row in GrdParameterList.Rows)
+            {
+                CheckBox chckrw = (CheckBox)row.FindControl("Select");
+                if (chckheader.Checked == true)
+                {
+                    chckrw.Checked = true;
+                }
+                else
+                {
+                    chckrw.Checked = false;
+                }
             }
         }
         protected void GetData()
@@ -42,22 +59,7 @@ namespace MFG_DigitalApp
                 _logger.Error(string.Concat("GetData::", ex.Message), ex);
             }
         }
-        protected void chckchanged(object sender, EventArgs e)
-        {
-            CheckBox chckheader = (CheckBox)GrdParameterList.HeaderRow.FindControl("CheckAll");
-            foreach (GridViewRow row in GrdParameterList.Rows)
-            {
-                CheckBox chckrw = (CheckBox)row.FindControl("Select");
-                if (chckheader.Checked == true)
-                {
-                    chckrw.Checked = true;
-                }
-                else
-                {
-                    chckrw.Checked = false;
-                }
-            }
-        }
+        
         public override void VerifyRenderingInServerForm(Control control)
         {
             //required to avoid the runtime error "  
@@ -322,6 +324,30 @@ namespace MFG_DigitalApp
             {
                 _logger.Error(string.Concat("BindCompletedParametersGrid::", ex.Message), ex);
             }
+        }
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            StringBuilder sb = new StringBuilder();
+            string userID = Convert.ToString(Session["UserId"]);
+            for (int count = 0; count < GrdParameterList.Rows.Count; count++)
+            {
+                CheckBox chkCheck = (CheckBox)GrdParameterList.Rows[count].FindControl("Select");
+                if (chkCheck.Checked)
+                {
+                    Label lblForId = (Label)GrdParameterList.Rows[count].FindControl("lblID");
+                    sb.Append(lblForId.Text);
+                    sb.Append(",");
+                }
+            }
+            SqlParameter[] param = new SqlParameter[]
+                    {
+                        new SqlParameter("@OPR", "77"),
+                        new SqlParameter("@ids",sb.ToString()),
+                        new SqlParameter("@userid", userID)
+                    };
+
+            DBClass.ExecuteNonQuery_WithParam(param, "DM_SP_GET_DATA");
+            GetData();
         }
     }
 }

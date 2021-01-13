@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MFG_DigitalApp
-{
-
-
-    public partial class QI_Parameters
-    {
-
+namespace MFG_DigitalApp {
+    
+    
+    public partial class QI_Parameters {
+        
         /// <summary>
         /// HeaderButtons control.
         /// </summary>
@@ -22,7 +20,7 @@ namespace MFG_DigitalApp
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl HeaderButtons;
-
+        
         /// <summary>
         /// btnCreateParameter control.
         /// </summary>
@@ -31,7 +29,7 @@ namespace MFG_DigitalApp
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCreateParameter;
-
+        
         /// <summary>
         /// btnExport control.
         /// </summary>
@@ -40,7 +38,7 @@ namespace MFG_DigitalApp
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnExport;
-
+        
         /// <summary>
         /// txtParameterName control.
         /// </summary>
@@ -49,7 +47,7 @@ namespace MFG_DigitalApp
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtParameterName;
-
+        
         /// <summary>
         /// drpParameterType control.
         /// </summary>
@@ -58,7 +56,7 @@ namespace MFG_DigitalApp
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList drpParameterType;
-
+        
         /// <summary>
         /// txtCreatedBy control.
         /// </summary>
@@ -67,7 +65,7 @@ namespace MFG_DigitalApp
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCreatedBy;
-
+        
         /// <summary>
         /// BtnShow control.
         /// </summary>
@@ -76,7 +74,16 @@ namespace MFG_DigitalApp
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BtnShow;
-
+        
+        /// <summary>
+        /// btnDelete control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDelete;
+        
         /// <summary>
         /// GrdParameterList control.
         /// </summary>
@@ -85,7 +92,7 @@ namespace MFG_DigitalApp
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GrdParameterList;
-
+        
         /// <summary>
         /// btnPopupStartAddParam control.
         /// </summary>
@@ -94,7 +101,7 @@ namespace MFG_DigitalApp
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnPopupStartAddParam;
-
+        
         /// <summary>
         /// MPStartAddParam control.
         /// </summary>
@@ -103,7 +110,7 @@ namespace MFG_DigitalApp
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.ModalPopupExtender MPStartAddParam;
-
+        
         /// <summary>
         /// lblStartMessageAddParam control.
         /// </summary>
@@ -112,7 +119,7 @@ namespace MFG_DigitalApp
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblStartMessageAddParam;
-
+        
         /// <summary>
         /// hdnParameterId control.
         /// </summary>
@@ -121,7 +128,7 @@ namespace MFG_DigitalApp
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hdnParameterId;
-
+        
         /// <summary>
         /// txtPName control.
         /// </summary>
@@ -130,7 +137,7 @@ namespace MFG_DigitalApp
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPName;
-
+        
         /// <summary>
         /// ParameterNameRequired control.
         /// </summary>
@@ -139,7 +146,7 @@ namespace MFG_DigitalApp
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator ParameterNameRequired;
-
+        
         /// <summary>
         /// drpPType control.
         /// </summary>
@@ -148,7 +155,7 @@ namespace MFG_DigitalApp
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList drpPType;
-
+        
         /// <summary>
         /// drpPTypeValidator control.
         /// </summary>
@@ -157,7 +164,7 @@ namespace MFG_DigitalApp
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator drpPTypeValidator;
-
+        
         /// <summary>
         /// txtTool control.
         /// </summary>
@@ -166,7 +173,7 @@ namespace MFG_DigitalApp
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTool;
-
+        
         /// <summary>
         /// txtToolValidator control.
         /// </summary>
@@ -175,7 +182,7 @@ namespace MFG_DigitalApp
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator txtToolValidator;
-
+        
         /// <summary>
         /// btnSaveParam control.
         /// </summary>
@@ -184,7 +191,7 @@ namespace MFG_DigitalApp
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSaveParam;
-
+        
         /// <summary>
         /// btnCancel control.
         /// </summary>

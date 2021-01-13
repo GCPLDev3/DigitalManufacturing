@@ -11,6 +11,9 @@
                 e.preventDefault();
             }
         }
+
+        function UserDeleteConfirmation() {
+            return confirm("Are you sure you want to delete parameters?");
     </script>
     <style>
         .rbtnlbl {
@@ -75,6 +78,11 @@
                                 <div class="col-md-2 col-sm-2 col-xs-2">
                                     <asp:Button runat="server" ID="BtnShow" CssClass="btn btn-success" Style="margin-top: 26px" Text="Show" OnClick="BtnShow_Click" />
                                 </div>
+                                <div class="col-md-2 col-sm-2 col-xs-2">
+                                </div>
+                                <div class="col-md-2 col-sm-2 col-xs-2">
+                                    <asp:Button runat="server" ID="btnDelete" CssClass="btn btn-danger" Style="margin-top: 26px" Text="Delete Parameters" OnClick="btnDelete_Click" OnClientClick="if(!UserDeleteConfirmation()) return false;" />
+                                </div>
                             </div>
                         </div>
                         <div class="row">
@@ -82,6 +90,19 @@
                                 <asp:GridView runat="server" ID="GrdParameterList" AutoGenerateColumns="false" DataKeyNames="Id" EmptyDataText="No Records Found!!" OnPageIndexChanging="OnPaging" AllowPaging="true" PageSize="10"
                                     Width="100%" CssClass="table table-striped table-bordered table-hover" OnRowDeleting="GrdParameterList_RowDeleting" OnRowDataBound="GrdParameterList_RowDataBound" ShowHeaderWhenEmpty="true">
                                     <Columns>
+                                        <asp:TemplateField HeaderText="Select">
+                                            <HeaderTemplate>
+                                                <asp:CheckBox ID="CheckAll" AutoPostBack="true" OnCheckedChanged="chckchanged" runat="server" />
+                                            </HeaderTemplate>
+                                            <ItemTemplate>
+                                                <asp:CheckBox ID="Select" runat="server" />
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Id" Visible="false">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblID" runat="server" Text='<%# Eval("ID") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
                                         <asp:TemplateField HeaderText="Parameter Name">
                                             <ItemTemplate>
                                                 <asp:LinkButton Text='<%# Eval("ParameterName") %>' runat="server" CommandArgument="<%# Container.DataItemIndex %>" ID="lnkParameterName" OnClick="lnkParameterName_Click" Font-Bold="true" ForeColor="#3333ff" />
