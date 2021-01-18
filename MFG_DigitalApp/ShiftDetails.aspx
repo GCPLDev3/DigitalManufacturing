@@ -31,7 +31,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <asp:GridView runat="server" ID="GrdStoppageReason" AutoGenerateColumns="false" EmptyDataText="No Records Found!!"
-                                    Width="100%" CssClass="table table-striped table-bordered table-hover" ShowHeaderWhenEmpty="true">
+                                    Width="100%" CssClass="table table-striped table-bordered table-hover" ShowHeaderWhenEmpty="true" OnRowDataBound="GrdStoppageReason_RowDataBound">
                                     <Columns>
                                         <asp:TemplateField HeaderText="Line">
                                             <ItemTemplate>
@@ -43,6 +43,8 @@
                                         <asp:BoundField DataField="OrderQuantity" HeaderText="Order Quantity" ItemStyle-HorizontalAlign="Right" />
                                         <asp:BoundField DataField="ShiftProduction" HeaderText="Shift Production" ItemStyle-HorizontalAlign="Right" />
                                         <asp:BoundField DataField="TotalDeliveryQuantity" HeaderText="Total Delivery Quantity" ItemStyle-HorizontalAlign="Right" />
+                                        <asp:BoundField HeaderText="Prod Qty MT" DataField="prodqtymt"/>
+                                        <asp:BoundField HeaderText="Prod Qty MT"/>
                                     </Columns>
                                     <PagerStyle CssClass="GridPager" />
                                 </asp:GridView>

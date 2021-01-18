@@ -157,8 +157,24 @@ namespace MFG_DigitalApp
         //}
             protected void GrdActiveAndScheduled_RowDataBound(object sender, GridViewRowEventArgs e)
         {
+            if (lblplantcode.Text == "M016")
+            {
+                GrdActiveAndScheduled.Columns[9].Visible = true;
+                GrdActiveAndScheduled.Columns[10].Visible = false;
+            }
+            else if (lblplantcode.Text == "M024" && (lblline.Text == "MT Cream 1" || lblline.Text == "MT Cream 2" || lblline.Text == "MT Devlop 1" || lblline.Text == "MT Devlop 2"))
+            {
+                GrdActiveAndScheduled.Columns[9].Visible = false;
+                GrdActiveAndScheduled.Columns[10].Visible = true;
+            }
+            else
+            {
+                GrdActiveAndScheduled.Columns[9].Visible = false;
+                GrdActiveAndScheduled.Columns[10].Visible = false;
+            }
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
+                
                 LinkButton lnkDeletePO = (LinkButton)e.Row.FindControl("lnkDeletePO");
                 LinkButton lnkRestartPO = (LinkButton)e.Row.FindControl("lnkRestartPO");
                 if (e.Row.Cells[0].Text.Equals("Active"))
@@ -182,6 +198,7 @@ namespace MFG_DigitalApp
                     lnkDeletePO.Visible = true;
                     lnkRestartPO.Visible = false;
                 }
+                
             }
         }
 

@@ -256,5 +256,23 @@ namespace MFG_DigitalApp
         }
         #endregion
 
+        protected void GrdStoppageReason_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if(drpPlant.SelectedValue=="M016")
+            {
+                GrdStoppageReason.Columns[6].Visible = true;
+                GrdStoppageReason.Columns[7].Visible = false;
+            }
+            else if (drpPlant.SelectedValue == "M024")
+            {
+                GrdStoppageReason.Columns[6].Visible = false;
+                GrdStoppageReason.Columns[7].Visible = true;
+            }
+            else
+            {
+                GrdStoppageReason.Columns[6].Visible = false;
+                GrdStoppageReason.Columns[7].Visible = false;
+            }
+        }
     }
 }

@@ -106,6 +106,8 @@
                                                 <asp:BoundField DataField="StartTime" HeaderText="Start Time" />
                                                 <asp:BoundField DataField="OrderQuantity" HeaderText="Order Qty" ItemStyle-HorizontalAlign="Right" />
                                                 <asp:BoundField DataField="ProducedQuanity" HeaderText="Prod Qty" ItemStyle-HorizontalAlign="Right" />
+                                                <asp:BoundField HeaderText="Prod Qty MT" DataField="prodqtymt"/>
+                                                <asp:BoundField HeaderText="Prod Qty MT"/>
                                                 <asp:BoundField DataField="ShiftQuantity" HeaderText="Shift Qty" ItemStyle-HorizontalAlign="Right" />
                                                 <asp:TemplateField HeaderText="Action">
                                                     <ItemTemplate>
